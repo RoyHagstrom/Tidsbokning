@@ -1,3 +1,6 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
 <?php
 echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />';
 echo '<link rel="preconnect" href="https://fonts.googleapis.com">';
@@ -135,82 +138,75 @@ echo '</div>';
 ?>
 <style>
   #form{
-    width: 30%;
-    margin: 0 auto;
+
+
     align-content: center;
   }
+  #col-1{
+    background-color: #e3e3e3;
+    border-radius: 10px;
+
+    padding: 20px;
+
+  }
+  #col-2{
+    background-color: #e3e3e3;
+    border-radius: 10px;
+
+    padding: 20px;
+
+  }
+
+  .form {
+    width: 60vw;
+    margin: 0 auto;
+
+  }
   </style>
+
+<div class="form">
 <div id="form">
-<form method="post" action="action_page.php">
-  <label for="nyhetsrubrik">Uutisen otsikko:</label><br>
-  <input type="text" id="nyhetsrubrik" name="nyhetsrubrik" value=""><br>
+<form method="post" action="Form.php">
+<div style="float: left;" id="col-1">
+<input type="radio" id="Massage 1" name="type" value="Massage 1">
+  <label for="Massage 1">Massage 1</label><br>
 
-  <label for="nyhetstext">Uutisteksti:</label><br>
-  <input type="text" id="nyhetstext" name="nyhetstext" value=""><br>
+  <input type="radio" id="Massage 2" name="type" value="Massage 2">
+  <label for="Massage 2">Massage 2</label><br>
 
-  <label for="författare">Tekijä:</label><br>
-  <input type="text" id="författare" name="författare" value=""><br>
+  <input type="radio" id="Massage 3" name="type" value="Massage 3">
+  <label for="Massage 3">Massage 3</label><br><br>
 
-  <label for="bild">kuva:</label><br>
-  <input type="text" id="bild" name="bild" value="https://images.stockx.com/images/Youtooz-Bruh-Plush-Vinyl-Figure-FOOTLONG-MOAI.jpg"><br>
+  <label for="date">Date:</label><br>
+<input type="date" name="date" id="date" placeholder="John"><br><br>
 
-  <label for="datum">Päivämäärä:</label><br>
-  <input type="date" id="datum" name="datum" value="2022-11-23" min="2022-01-01"><br><br>
-
-  <input type="submit" name="article-submit" value="Luo">
-</form> <br>
-
-
-
+<label for="starttime">Date:</label><br>
+<input type="time" name="starttime" id="starttime" placeholder=""><br><br>
+<label for="endtime">Date:</label><br>
+<input type="time" name="endtime" id="endtime" placeholder=""><br><br>
+</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="form2">
-<form method="post" action="">
-
+<div style="margin-left: 230px;" id="col-2">
 <label for="Name">Name:</label><br>
 <input type="text" name="Name" id="Name" placeholder="John"><br><br>
-<input type="submit" name="article-submit" value="Submit">
+
+<label for="phone">Phone:</label><br>
+<input type="number" name="phone" id="phone" placeholder="040 3254871"><br><br>
+
+
+
+
+
+<input type="submit" name="article-submit" value="Submit"><br><br>
+
+
+</div>
+</div>
 
 <?php
 
-if(isset($_POST['article-submit'])){
 
-$Name = $_POST['Name'];
-
-echo "<br>" . $Name;
-
-}
-
-else{
-
-}
 ?>
 
 

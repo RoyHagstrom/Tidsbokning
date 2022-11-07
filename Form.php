@@ -137,12 +137,11 @@ echo '</div>';
  $queryResult = $conn->query("SELECT * FROM tidsbokning ORDER BY date DESC ");
  foreach ($queryResult as $row){
   ?>
-  <div class="Site" style="max-width: 40vw; margin: 0 auto; ">
+  <div class="Site" style="max-width: 60vw; margin: 0 auto; ">
 
   <div class="container">
 
-  <?php $image_url=$row['bild']; ?>
-  <img src="<?php echo $image_url;?>" style="border-radius: 5px; align-content: bottom-left; max-width: 40vw;">
+
   
     <div class="bottom-left">
     <?php
@@ -166,6 +165,14 @@ echo '</div>';
       echo "<h1>";
       echo $row['type'] . "<br>";
       echo "</h1>";
+      echo "<h2>";
+      echo $row['name'] . "<br> ";
+      echo "</h2>";
+      echo "<br>";
+
+      echo "<br>";
+      echo "<br>";
+
       echo "<p>";
       echo $row['date'] . "<br>";
       echo "</p>";

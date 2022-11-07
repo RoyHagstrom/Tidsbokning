@@ -5,6 +5,9 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 
+
+if(isset($_POST['article-submit'])){
+
 try {
   $conn = new PDO("mysql:host=$servername;dbname=bokning", $username, $password);
   // set the PDO error mode to exception
@@ -14,4 +17,8 @@ try {
   echo "Connection failed: " . $e->getMessage();
 }
 
+
+}
+
 ?>
+
