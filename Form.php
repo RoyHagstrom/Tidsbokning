@@ -1,3 +1,7 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+
 <?php
 echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />';
 echo '<link rel="preconnect" href="https://fonts.googleapis.com">';
@@ -111,6 +115,10 @@ h2{
 
 //--------------------------------------------------------------------------------------------------------------------------------------
 
+global $conn; 
+
+
+
 include 'Header.php';
 echo '</div>';
 
@@ -134,30 +142,135 @@ echo '</div>';
 
 
 
+    
+
+    if(isset($_POST['article-submit'])){
+
+
+      $date = $_POST['date'];
+      $starttime = $_POST['starttime'];
+      $endtime = $_POST['endtime'];
+      $type = $_POST['type'];
+      $Name = $_POST['Name'];
+      $phone = $_POST['phone'];
+
+      if($conn->query("INSERT INTO `tidsbokning` (`date`, `starttime`, `endtime`, `type`, `name`, `phone`) VALUES ('$date', '$starttime', '$endtime', '$type', '$Name', '$phone')")){
+
+
+
+      $queryResult = $conn->query("SELECT * FROM tidsbokning ORDER BY date DESC ");
+      foreach ($queryResult as $row){
+     ?>
+       
+       <div class="Site" style="max-width: 60vw; margin: 0 auto; ">
+     
+      
+       
+       
+       
+        <?php
+         
+           echo "<div>";
+           
+           
+           echo "</div>";
+           echo "<h1>";
+           echo $row['type'] . "<br>";
+           echo "</h1>";
+           echo "<h2>";
+           echo $row['name'] . "<br> ";
+           echo "</h2>";
+           echo "<br>";
+     
+           echo "<br>";
+           echo "<br>";
+     
+           echo "<p>";
+           echo $row['date'] . "<br>";
+           echo "</p>";
+           echo "<p>";
+           echo $row['starttime'] . "<br>";
+           echo "</p>";
+           echo "<p>";
+           echo $row['endtime'] . "<br>";
+           echo "</p>";
+           echo "<p>";
+           echo $row['phone'] . "<br>";
+           echo "</p>" . "  </div>";
+      }}
+      
+
+    }
+    /*else{
+
+
+     
+      $queryResult = $conn->query("SELECT * FROM tidsbokning ORDER BY date ASC ");
+      foreach ($queryResult as $row){
+     ?>
+       
+       <div class="Site" style="max-width: 60vw; margin: 0 auto; ">
+     
+      
+       
+       
+       
+        <?php
+         
+           echo "<div>";
+           
+           
+           echo "</div>";
+           echo "<h1>";
+           echo $row['type'] . "<br>";
+           echo "</h1>";
+           echo "<h2>";
+           echo $row['name'] . "<br> ";
+           echo "</h2>";
+           echo "<br>";
+     
+           echo "<br>";
+           echo "<br>";
+     
+           echo "<p>";
+           echo $row['date'] . "<br>";
+           echo "</p>";
+           echo "<p>";
+           echo $row['starttime'] . "<br>";
+           echo "</p>";
+           echo "<p>";
+           echo $row['endtime'] . "<br>";
+           echo "</p>";
+           echo "<p>";
+           echo $row['phone'] . "<br>";
+           echo "</p>" . "  </div>";
+      }
+    
+    
+    
+    
+     }*/
+
+
+
+else {
+
+
+
+
+
  $queryResult = $conn->query("SELECT * FROM tidsbokning ORDER BY date DESC ");
  foreach ($queryResult as $row){
-  ?>
+
+
+
+    ?>
   <div class="Site" style="max-width: 60vw; margin: 0 auto; ">
-
-  <div class="container">
-
-
-  
-    <div class="bottom-left">
-    <?php
-   {
-      echo "<p>";
-      echo 'Tidbokning';
-      echo "</p>";
-  }
-  ?>
-    </div>
-  </div>
-  
-  
-  
    <?php
-   {
+
+
+
+    
       echo "<div>";
       
       
@@ -184,12 +297,13 @@ echo '</div>';
       echo "</p>";
       echo "<p>";
       echo $row['phone'] . "<br>";
-      echo "</p>";
-  }
+      echo "</p>" . "  </div>";
+ }}
+ 
   ?>
-  </div>
+ 
 <?php
- }
+ 
 
 
  ?>
