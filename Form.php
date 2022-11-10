@@ -157,8 +157,16 @@ echo '</div>';
       if($conn->query("INSERT INTO `tidsbokning` (`date`, `starttime`, `endtime`, `type`, `name`, `phone`) VALUES ('$date', '$starttime', '$endtime', '$type', '$Name', '$phone')")){
 
 
+        echo '<div id="Today" class="col-1"';
 
-      $queryResult = $conn->query("SELECT * FROM tidsbokning ORDER BY date DESC ");
+        $queryResult = $conn->query("SELECT * FROM tidsbokning WHERE DATE(date)=CURDATE() ORDER BY starttime ASC");
+  ?>
+  <div>
+    <h2 style="text-align: center; width: 100%;">Today</h2>
+  </div>
+  
+  
+  <?php
       foreach ($queryResult as $row){
      ?>
        
@@ -170,36 +178,34 @@ echo '</div>';
        
         <?php
          
-           echo "<div>";
-           
-           
-           echo "</div>";
-           echo "<h1>";
-           echo $row['type'] . "<br>";
-           echo "</h1>";
-           echo "<h2>";
-           echo $row['name'] . "<br> ";
-           echo "</h2>";
-           echo "<br>";
-     
-           echo "<br>";
-           echo "<br>";
-     
-           echo "<p>";
-           echo $row['date'] . "<br>";
-           echo "</p>";
-           echo "<p>";
-           echo $row['starttime'] . "<br>";
-           echo "</p>";
-           echo "<p>";
-           echo $row['endtime'] . "<br>";
-           echo "</p>";
-           echo "<p>";
-           echo $row['phone'] . "<br>";
-           echo "</p>" . "  </div>";
+           include 'booking.php';
       }}
-      
+      echo "</div>";
 
+      echo '<div id="Tomorrow">';
+
+      $queryResult = $conn->query("SELECT * FROM tidsbokning WHERE DATE(date)=CURDATE() +1 ORDER BY starttime ASC");
+      ?>
+      <div>
+        <h2 style="text-align: center; width: 100%;">Tomorrow</h2>
+      </div>
+      
+      
+      <?php
+      foreach ($queryResult as $row){
+     ?>
+       
+       <div class="Site" style="max-width: 60vw; margin: 0 auto; ">
+     
+      
+       
+       
+       
+        <?php
+         
+         include 'booking.php';
+      }
+      echo "</div>";
     }
     /*else{
 
@@ -258,47 +264,57 @@ else {
 
 
 
+  echo '<div id="Today"';
 
- $queryResult = $conn->query("SELECT * FROM tidsbokning ORDER BY date DESC ");
- foreach ($queryResult as $row){
+  $queryResult = $conn->query("SELECT * FROM tidsbokning WHERE DATE(date)=CURDATE() ORDER BY starttime ASC");
+  ?>
+  <div>
+    <h2 style="text-align: center; width: 100%;">Today</h2>
+  </div>
+  
+  
+  <?php
+  foreach ($queryResult as $row){
+ ?>
+   
+   <div class="Site" style="max-width: 60vw; margin: 0 auto; ">
+ 
+  
+   
+   
+   
+    <?php
+     
+     include 'booking.php';
+  }}
+  echo "</div>";
+  
+echo '<div id="Tomorrow">';
+  $queryResult = $conn->query("SELECT * FROM tidsbokning WHERE DATE(date)=CURDATE() +1 ORDER BY date ASC");
+  ?>
+<div>
+  <h2 style="text-align: center; width: 100%;">Tomorrow</h2>
+</div>
 
 
+<?php
+  foreach ($queryResult as $row){       
+ ?>
+   
+   <div class="Site" style="max-width: 60vw; margin: 0 auto; ">
+ 
+  
+   
+   
+   
+    <?php
+     
+     include 'booking.php';
+  
 
-    ?>
-  <div class="Site" style="max-width: 60vw; margin: 0 auto; ">
-   <?php
-
-
-
-    
-      echo "<div>";
-      
-      
-      echo "</div>";
-      echo "<h1>";
-      echo $row['type'] . "<br>";
-      echo "</h1>";
-      echo "<h2>";
-      echo $row['name'] . "<br> ";
-      echo "</h2>";
-      echo "<br>";
-
-      echo "<br>";
-      echo "<br>";
-
-      echo "<p>";
-      echo $row['date'] . "<br>";
-      echo "</p>";
-      echo "<p>";
-      echo $row['starttime'] . "<br>";
-      echo "</p>";
-      echo "<p>";
-      echo $row['endtime'] . "<br>";
-      echo "</p>";
-      echo "<p>";
-      echo $row['phone'] . "<br>";
-      echo "</p>" . "  </div>";
- }}
+}
+echo "</div>";
+echo "</div>";
  
   ?>
  
