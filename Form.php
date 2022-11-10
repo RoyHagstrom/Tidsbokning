@@ -147,17 +147,56 @@ echo '</div>';
     if(isset($_POST['article-submit'])){
 
 
-      $date = $_POST['date'];
-      $starttime = $_POST['starttime'];
-      $endtime = $_POST['endtime'];
-      $type = $_POST['type'];
-      $Name = $_POST['Name'];
-      $phone = $_POST['phone'];
+      function cleaninput($data){
 
-      if($conn->query("INSERT INTO `tidsbokning` (`date`, `starttime`, `endtime`, `type`, `name`, `phone`) VALUES ('$date', '$starttime', '$endtime', '$type', '$Name', '$phone')")){
+        $data = trim($data);
+    
+        $data = stripslashes($data);
+    
+        $data = htmlspecialchars($data);
+    
+    
+    
+        return $data;
+    
+    }
 
 
-        echo '<div id="Today" class="col-1"';
+      $date = cleaninput($_POST['date']);
+      $starttime = cleaninput($_POST['starttime']);
+      $endtime = cleaninput($_POST['endtime']);
+      $type = cleaninput($_POST['type']);
+      $Name = cleaninput($_POST['Name']);
+      $phone = cleaninput($_POST['phone']);
+
+
+
+      if($conn->query("INSERT INTO `tidsbokning` (`date`, `starttime`, `endtime`, `type`, `name`, `phone`) VALUES ('$date', '$starttime', '$endtime', '$type', '$Name', '$phone')"))
+
+
+
+
+
+        if($stmt_insertPerson = $conn->prepare("INSERT INTO tidsbokning (`date`, `starttime`, `endtime`, `type`, `name`, `phone`) VALUES (:`date`,:`starttime`,:`endtime`,:`type`,:`Name`,:`phone`)")){
+
+        $stmt_insertPerson->bindparam(':date',$date, PDO::PARAM_STR);
+    
+        $stmt_insertPerson->bindparam(':starttime',$starttime, PDO::PARAM_STR);
+    
+        $stmt_insertPerson->bindparam(':endtime',$endtime, PDO::PARAM_STR);
+    
+        $stmt_insertPerson->bindparam(':type',$type, PDO::PARAM_STR);
+    
+        $stmt_insertPerson->bindparam(':name',$Name, PDO::PARAM_STR);
+    
+        $stmt_insertPerson->bindparam(':phone',$phone, PDO::PARAM_STR);
+
+
+
+
+
+
+      
 
         $queryResult = $conn->query("SELECT * FROM tidsbokning WHERE DATE(date)=CURDATE() ORDER BY starttime ASC");
   ?>
@@ -166,7 +205,7 @@ echo '</div>';
   </div>
   
   
-  <?php
+  <?php 
       foreach ($queryResult as $row){
      ?>
        
