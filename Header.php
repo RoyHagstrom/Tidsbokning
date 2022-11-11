@@ -1,9 +1,21 @@
-<?php
-echo '<div class="header" id="myHeader">';
-echo '<h2>Tidsbokning</h2>';
-?>
 
-<div style='width: 350px; float: right; margin: auto ;' class="header1">
-<h3 style='float: left;'><a href="index.php" title="" id="Makebtn">Home</a></h3>
-<h3 style='padding-right: 100px;'><a href="Form.php" title="" id="Makebtn">Bookings</a></h3>
-</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Form.php">Bookings</a>
+</li>
+      
+    </ul>
+    
+  </div>
+</nav>

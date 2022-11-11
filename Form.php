@@ -209,7 +209,7 @@ echo '</div>';
       foreach ($queryResult as $row){
      ?>
        
-       <div class="Site" style="max-width: 60vw; margin: 0 auto; ">
+       <div class="Site" style="max-width: 80vw; margin: 0 auto; ">
      
       
        
@@ -234,7 +234,7 @@ echo '</div>';
       foreach ($queryResult as $row){
      ?>
        
-       <div class="Site" style="max-width: 60vw; margin: 0 auto; ">
+       <div class="Site" style="max-width: 80vw; margin: 0 auto; ">
      
       
        
@@ -254,7 +254,7 @@ echo '</div>';
       foreach ($queryResult as $row){
      ?>
        
-       <div class="Site" style="max-width: 60vw; margin: 0 auto; ">
+       <div class="Site" style="max-width: 80vw; margin: 0 auto; ">
      
       
        
@@ -316,7 +316,7 @@ else {
   foreach ($queryResult as $row){
  ?>
    
-   <div class="Site" style="max-width: 60vw; margin: 0 auto; ">
+   <div class="Site" style="max-width: 80vw; margin: 0 auto; ">
  
   
    
@@ -340,7 +340,7 @@ echo '<div id="Tomorrow">';
   foreach ($queryResult as $row){       
  ?>
    
-   <div class="Site" style="max-width: 60vw; margin: 0 auto; ">
+   <div class="Site" style="max-width: 80vw; margin: 0 auto; ">
  
   
    

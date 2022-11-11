@@ -187,12 +187,12 @@ echo '</div>';
 </div>
 
 
-<div style="margin-left: 230px;" id="col-2">
+<div style="margin-left: 230px; width: 30vw;" id="col-2">
 <label for="Name">Name:</label><br>
-<input type="text" name="Name" id="Name" placeholder="John" required><br><br>
+<input type="text" name="Name" id="Name" placeholder="John" style="width: 20vw;" required><br><br>
 
 <label for="phone">Phone:</label><br>
-<input type="number" name="phone" id="phone" placeholder="040 3254871" required><br><br>
+<input type="number" name="phone" id="phone" placeholder="040 3254871" style="width: 20vw;" required><br><br>
 
 
 

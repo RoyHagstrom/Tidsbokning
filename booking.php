@@ -5,7 +5,7 @@
 }
 
 #name{
-    margin-left: 200px;
+    margin-left: 5vw;
 }
 
 </style>
@@ -19,7 +19,7 @@ echo "<div class='col'>";
            echo "<h2 id='type'>";
            echo $row['type'] . "<br>";
            echo "</h2>";
-           echo "<h3 id='name'>";
+           echo "<h4 id='name'>";
            echo '"' . $row['name'] . '"' . "<br> ";
            echo "</h3>";
            echo "<br>";
