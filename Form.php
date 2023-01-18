@@ -244,8 +244,46 @@ echo '</div>';
          
          include 'booking.php';
       }
+
+      
+      echo "</div>";
+
+
+      
+
+      echo '<div id="Other">';
+
+      $queryResult = $conn->query("SELECT * FROM tidsbokning WHERE DATE(date)>CURDATE() +2 ORDER BY starttime ASC");
+      ?>
+      <div>
+        <h2 style="text-align: center; width: 100%;">Other</h2>
+      </div>
+      
+      
+      <?php
+      foreach ($queryResult as $row){
+     ?>
+       
+       <div class="Site" style="max-width: 80vw; margin: 0 auto; ">
+     
+      
+       
+       
+       
+        <?php
+         
+         include 'booking.php';
+      }
+
+      
+      echo "</div>";
       echo "</div>";
     }
+
+
+
+
+    
     /*else{
 
 
@@ -294,11 +332,7 @@ echo '</div>';
     
     
     
-     }*/
-
-
-
-else {
+     }*/else {
 
 
 
@@ -306,15 +340,15 @@ else {
   echo '<div id="Today"';
 
   $queryResult = $conn->query("SELECT * FROM tidsbokning WHERE DATE(date)=CURDATE() ORDER BY starttime ASC");
-  ?>
+        ?>
   <div>
     <h2 style="text-align: center; width: 100%;">Today</h2>
   </div>
   
   
   <?php
-  foreach ($queryResult as $row){
- ?>
+  foreach ($queryResult as $row) {
+  ?>
    
    <div class="Site" style="max-width: 80vw; margin: 0 auto; ">
  
@@ -323,22 +357,22 @@ else {
    
    
     <?php
-     
-     include 'booking.php';
-  }}
+
+    include 'booking.php';
+  }
   echo "</div>";
-  
-echo '<div id="Tomorrow">';
+
+  echo '<div id="Tomorrow">';
   $queryResult = $conn->query("SELECT * FROM tidsbokning WHERE DATE(date)=CURDATE() +1 ORDER BY date ASC");
-  ?>
+    ?>
 <div>
   <h2 style="text-align: center; width: 100%;">Tomorrow</h2>
 </div>
 
 
 <?php
-  foreach ($queryResult as $row){       
- ?>
+  foreach ($queryResult as $row) {
+?>
    
    <div class="Site" style="max-width: 80vw; margin: 0 auto; ">
  
@@ -347,21 +381,46 @@ echo '<div id="Tomorrow">';
    
    
     <?php
-     
-     include 'booking.php';
-  
 
-}
-echo "</div>";
-echo "</div>";
- 
-  ?>
+    include 'booking.php';
+
+
+  }
+  echo "</div>";
+  echo "</div>";
+
+    ?>
  
 <?php
- 
+  echo '<div id="Other">';
+
+  $queryResult = $conn->query("SELECT * FROM tidsbokning WHERE DATE(date)>CURDATE() +2 ORDER BY starttime ASC");
+?>
+       <div>
+         <h2 style="text-align: center; width: 100%;">Other</h2>
+       </div>
+       
+       
+       <?php
+  foreach ($queryResult as $row) {
+       ?>
+        
+        <div class="Site" style="max-width: 80vw; margin: 0 auto; ">
+      
+       
+        
+        
+        
+         <?php
+
+    include 'booking.php';
+  }
 
 
+  echo "</div>";
+
+}
  ?>
 
-
+      
 
